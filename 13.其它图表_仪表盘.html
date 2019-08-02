@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>13.其它图表_仪表盘</title>
+</head>
+<body>
+<!--
+type是gauge
+-->
+
+<div id="main" style="width: 600px;height:600px;"></div>
+
+<script src="js/echarts.js"></script>
+<script type="text/javascript">
+  var myChart = echarts.init(document.getElementById('main'))
+
+  var option = {
+    series: [
+      {
+        name: '业务指标',
+        type: 'gauge',
+        detail: {formatter: '{value}%'},
+        data: [{value: 32, name: '完成率'}]
+      }
+    ]
+  }
+
+  myChart.setOption(option)
+
+  //动态显示数据
+  //toFixed() 方法可把 Number 四舍五入为指定小数位数的数字
+  setInterval(function () {
+    option.series[0].data[0].value = (Math.random() * 100).toFixed(2);
+    myChart.setOption(option);
+  }, 2000)
+
+</script>
+</body>
+
+</html>

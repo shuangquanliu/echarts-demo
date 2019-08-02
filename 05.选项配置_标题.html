@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>05.选项配置_标题</title>
+</head>
+<body>
+<!--
+标题：title
+  show:标题是否显示
+  text：标题文字
+  subtext：子标题
+  left，top,right,bottom标题的位置
+  borderColor边框颜色
+  borderWidth边框宽度
+-->
+
+<div id="main" style="width: 600px;height:400px;"></div>
+
+<script src="js/echarts.js"></script>
+<script type="text/javascript">
+  const myChart = echarts.init(document.getElementById('main'))
+  const option = {
+    // title 标题
+    title: {
+      show: true,
+      text: '前端课程',
+      subtext: '尚硅谷最新前端课程内容',
+      left: 20,
+      borderColor: 'red',
+      borderWidth: 5
+    },
+    // legend 图例
+    legend: {
+      data: ['前端课程时间(天)', '难度系数']
+    },
+    // xAxis x轴
+    xAxis: {
+      data: ["HTML", "css", "Node", "JS基础",'JS框架', "移动端"]
+    },
+    // yAxis y轴
+    yAxis: {},
+    // series 数据/类型
+    series: [
+      {
+        name: '前端课程时间(天)',
+        type: 'bar',
+        data: [5, 10, 10, 10, 35, 15]
+      },
+      {
+        name: '难度系数',
+        type: 'bar',
+        data: [5, 6, 4, 7, 10, 8]
+      }
+    ],
+    // tooltip 提示
+    tooltip: {}
+  }
+  myChart.setOption(option)
+</script>
+</body>
+
+</html>

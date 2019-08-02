@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>02.Echarts简介</title>
+  <!-- 引入 ECharts 文件 -->
+  <script type="text/javascript" src="js/echarts.js"></script>
+</head>
+<body>
+<!--
+  echarts官网：
+    * http://echarts.baidu.com
+  echarts简介：
+    * ECharts，一个纯 JS的图表库
+    * 提供直观，生动，可交互，可高度个性化定制的数据可视化图表。
+    * 可以流畅的运行在 PC 和移动设备上，
+    * 兼容当前绝大部分浏览器（IE8/9/10/11，Chrome，Firefox，Safari等）
+    * 底层依赖轻量级的 Canvas 类库 ZRender
+  echarts图表类型：
+    * 折线图
+    * 柱状图
+    * 饼图
+
+    * K线图
+    * 散点图
+    * 地图
+    * 仪表盘
+    * 雷达图
+    * 热力图
+    * 盒形图
+    * 关系图
+    * 漏斗图
+-->
+
+<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+<div id="main" style="width: 600px;height:400px;"></div>
+
+<script type="text/javascript">
+  // 基于准备好的dom，初始化echarts实例
+  var myChart = echarts.init(document.getElementById('main'));
+
+  // 指定图表的配置项和数据
+  var option = {
+    title: { // 标题
+      text: 'ECharts 入门示例2'
+    },
+    tooltip: { // 提示
+
+    },
+    legend: { // 图例
+      data: ['销量', '库存']
+    },
+    xAxis: { // x轴
+      data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+    },
+    yAxis: { // y轴
+
+    },
+    series: [{ // 系列
+      name: '销量', // 对应一个图例名称
+      type: 'bar', // 图表的类型
+      data: [5, 20, 36, 10, 10, 20] // 需要展现的数据
+    }, {
+      name: '库存',
+      type: 'line',
+      data: [6, 23, 35, 13, 12, 23]
+    }]
+  };
+
+  // 使用刚指定的配置项和数据显示图表。
+  myChart.setOption(option);
+</script>
+</body>
+</html>

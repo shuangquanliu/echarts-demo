@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>03.常用图表_柱状图</title>
+  <script type="text/javascript" src="js/echarts.js"></script>
+</head>
+<body>
+<!--
+  步骤：
+    1.下载echarts，并引入
+    2.为 ECharts 准备一个具备高宽的 DOM 容器
+    3.以通过 echarts.init()初始化一个 echarts 实例
+    4.通过 setOption 方法生成一个简单的柱状图(type：bar)
+-->
+<div id="myChart" style="width: 600px; height: 500px;"></div>
+<script type="text/javascript">
+  const myChart = echarts.init(document.getElementById('myChart'))
+  const option = {
+    // title 标题
+    title: {
+      text: '学习周期'
+    },
+    // legend 图例
+    legend: {
+      data: ['前端课程时间(天)', '难度系数','周期']
+    },
+    // xAxis x轴
+    xAxis: {
+      data: ["HTML", "css", "Node", "JS基础",'JS框架', "移动端"]
+    },
+    // yAxis y轴
+    yAxis: {},
+    // series 数据/类型
+    series: [
+      {
+        name: '前端课程时间(天)',
+        type: 'bar',
+        data: [5, 10, 10, 10, 35, 15]
+      },
+      {
+        name: '难度系数',
+        type: 'bar',
+        data: [5, 6, 4, 7, 10, 8]
+      },
+      {
+        name: '周期',
+        type: 'bar',
+        data: [12, 32, 12, 2, 111, 2]
+      }
+    ],
+    // tooltip 提示
+    tooltip: {}
+  }
+  myChart.setOption(option)
+</script>
+</body>
+
+</html>

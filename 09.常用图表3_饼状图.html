@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>09.常用图表3_饼状图</title>
+</head>
+<body>
+
+  <!--
+  1. 饼状图主要是通过扇形的弧度表现不同类目的数据在总和中的占比
+  2. 它的数据格式比柱状图更简单，只有一维的数值，不需要给类目。
+  3. 因为不在直角坐标系上，所以也不需要xAxis，yAxis。
+  -->
+
+  <!--
+  type: 'pie'  // 饼状图
+  radius: 圆的半径
+  roseType: 'angle'  // 南丁格尔图
+  -->
+
+<div id="main" style="width: 600px;height:600px;"></div>
+
+<script src="js/echarts.js"></script>
+<script type="text/javascript">
+  const myChart = echarts.init(document.getElementById('main'))
+  const option = {
+    title : {
+      text: '某站点用户访问来源',
+      subtext: '纯属虚构',
+      x:'center'
+    },
+    tooltip : {
+      trigger: 'item',
+      formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+      orient: 'vertical',
+      left: 'left',
+      data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+    },
+    series : [
+      {
+        name: '访问来源',
+        type: 'pie',
+        radius : '55%',
+        center: ['50%', '60%'],
+        // roseType : 'radius',
+        data:[
+          {value:335, name:'直接访问'},
+          {value:310, name:'邮件营销'},
+          {value:234, name:'联盟广告'},
+          {value:135, name:'视频广告'},
+          {value:1548, name:'搜索引擎'}
+        ],
+        itemStyle: {
+          emphasis: {
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowColor: 'rgba(0, 0, 0, 0.5)'
+          }
+        }
+      }
+    ]
+  };
+
+  myChart.setOption(option)
+</script>
+</body>
+
+</html>

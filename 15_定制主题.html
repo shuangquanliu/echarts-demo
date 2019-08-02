@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>15_定制主题</title>
+</head>
+<body>
+
+<!--
+  下载相应的主题文件并引入
+  在echarts.init（） 第二个参数可以指定前面引入的主题
+-->
+
+<div id="main" style="width: 600px;height:400px;"></div>
+
+<script src="js/echarts.js"></script>
+<script type="text/javascript" src="js/dark.js"></script>
+<script type="text/javascript">
+
+  //第二个参数可以指定前面引入的主题
+  var myChart = echarts.init(document.getElementById('main'), 'dark');
+
+  var option = {
+    //标题
+    title: {
+      text: 'ECharts 入门示例'
+    },
+    //弹窗组件
+    tooltip: {},
+    //图例
+    legend: {
+      data: ['H5课程']
+    },
+    //X轴
+    xAxis: {
+      data: ["HTML", "JS", "HTML5", "Node", "js高级", "移动端"]
+    },
+    //Y轴
+    yAxis: {},
+    //数据
+    series: [{
+      name: 'H5课程',
+      type: 'bar',
+      data: [10, 20, 36, 10, 15, 20]
+    }]
+  };
+
+  myChart.setOption(option);
+
+</script>
+</body>
+</html>

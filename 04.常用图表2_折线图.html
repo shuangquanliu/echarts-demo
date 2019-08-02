@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>04.常用图表_折线图</title>
+</head>
+<body>
+
+<div id="myChart" style="width: 600px;height:400px;"></div>
+
+<script src="js/echarts.js"></script>
+<script type="text/javascript">
+  const myChart = echarts.init(document.getElementById('myChart'))
+  const option = {
+    // title 标题
+    title: {
+      text: '前端课程'
+    },
+    // legend 图例
+    legend: {
+      data: ['前端课程时间(天)', '难度系数']
+    },
+    // xAxis x轴
+    xAxis: {
+      data: ["HTML", "css", "Node", "JS基础",'JS框架', "移动端"]
+    },
+    // yAxis y轴
+    yAxis: {},
+    // series 数据/类型
+    series: [
+      {
+        name: '前端课程时间(天)',
+        type: 'line',
+        data: [5, 10, 10, 10, 35, 15]
+      },
+      {
+        name: '难度系数',
+        type: 'line',
+        data: [5, 6, 4, 7, 10, 8]
+      }
+    ],
+    // tooltip 提示
+    tooltip: {}
+  }
+  myChart.setOption(option)
+</script>
+
+</body>
+</html>

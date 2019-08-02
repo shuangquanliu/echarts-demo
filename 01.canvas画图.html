@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>01.canvas画图</title>
+</head>
+<body>
+<!--canvas画图
+  基于像素
+  类似于在画布上画图
+  echarts基于canvas画图
+-->
+
+<canvas id="myCanvas" width="200" height="200">
+</canvas>
+
+<script type="text/javascript">
+  // 得到Canvas元素对象（画布）
+  var canvas = document.getElementById('myCanvas')
+  // 得到canvas上下文对象(2d画笔)
+  var context = canvas.getContext('2d')
+  // 开始一个新的路径绘制
+  context.beginPath()
+  //设置线条样式为蓝色
+  context.strokeStyle = 'blue'
+  /**
+   设定绘制圆弧
+   @param {Number} x 圆心x坐标
+   @param {Number} y 圆心y坐标
+   @param {Number} radius 半径
+   @param {Number} startAngle 开始角度
+   @param {Number} endAngle 结束角度
+   @param {boolean} [anticlockwise] 是否逆时针
+   */
+  console.log(Math.PI * 2)
+  context.arc(100, 100, 50, 0, Math.PI * 2, false)
+  // 画线绘制
+  context.stroke()
+</script>
+</body>
+</html>
